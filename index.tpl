@@ -2,7 +2,7 @@
 <title>Test Document Server</title>
 <body>
 	<h1>Test Document Center</h1>
-	Last update on xxxxx
+	Last update on {{.LastUpdate}} <a href="history.txt">History of Changes</a>
 	<table border="1">
 	<tr>
 		<th rowspan="2">Product</th>
@@ -21,14 +21,12 @@
 		<th >REV</th>
 		<th >DATE</th>
 	</tr>
-	{{range .}}
+	{{range $key, $value := .Doc}}
 	<tr>
-		<td>{{.Name}}</td>
-		{{range .Docs}}
-			<td><a href={{.Url}}>{{.Group}}</a></td>
-			<td>{{.Rev}}</td>
-			<td>{{.Date}}</td>
-			{{end}}
+		<td>{{$key.Customer}}</td>
+		<td>{{$key.Product}}</td>
+		<td>{{$key.DocType}}</td>
+		<td>{{$value}}</td>
 		</td>
 	</tr>
 	{{end}}
