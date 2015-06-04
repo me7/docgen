@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"os"
 	"path/filepath"
@@ -66,14 +65,6 @@ func (s *Scanner) GenIndex() (err error) {
 		return err
 	}
 	defer out.Close()
-
-	cust := []string{}
-	for k, _ := range s.document {
-		cust = append(cust, k.Customer)
-	}
-	fmt.Printf("%v", cust)
-	//products []string
-	//doctype  []string
 
 	//execute template
 	data := struct {
